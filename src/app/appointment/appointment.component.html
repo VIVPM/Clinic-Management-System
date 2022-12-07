@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="appoinment.css"> -->
+    <title>Health</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        <form [formGroup]="myForm" action="#" method="POST">
+            <div class="user-details">
+                <div class="input-box">
+                   <span class="details">Full Name</span> 
+                   <input type="text" formControlName="name" name="name" id = "fname" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Date</span> 
+                    <input type="date" formControlName="date" name="date" id = "date" placeholder="Enter Date" required>
+                 </div>
+                 <div class="input-box">
+                    <select formControlName="email" id = "Time" name="email" aria-placeholder = "Choose Timings" class="details" (change)="update1($event)">
+                        <option value="Timings">Choose the timings</option>
+                        <option *ngFor="let player of players" [value]="player" id="timings">
+                            {{player}}
+                        </option>
+                      </select>
+                </div>
+                <!-- <p>You selected {{selected}}</p> -->
+
+               
+                <div class="input-box">
+                   <span class="details">Phone Number</span> 
+                   <input type="text" formControlName="phone" name="phone" id = "phone" placeholder="Enter your Number" required>
+                </div>
+                <div class="input-box">
+                    <select formControlName="health" name="health" class="details" id = "Select" placeholder = "Consultation">
+                        <option value="general" id="GeneralHealth" >General Health</option>
+                        <option value="cardiology" id="Cardiology">Cardiology</option>
+                        <option value="dental" id="Dental">Dental</option>
+                        <option value="neurology" id="Neurology">Neurology</option>
+                        <option value="orthopaedics" id="Orthopaedics">Orthopaedics</option>
+                      </select>
+                </div>
+                <!-- <div class="form-group" id = "div">
+                    <label for="gender" class="text-light" id = "status">Status</label>
+                    <div class="radio inline">
+                        <input  type="radio" formControlName="status" id="online" name="status" value="Video Call" required>
+                        <label for="radio-4"  class="radio-label" id = "video">Video call</label>
+                    </div>
+                    <div class="radio inline">
+                        <input type="radio" formControlName="status" id="offline" name="status" value="Physical" required>
+                        <label for="radio-5" class="radio-label" id = "physical-1">Physical</label>
+                    </div>
+                </div> -->
+               
+                <div class="input-box">
+                    <select formControlName="status" name="status" class="details" id = "Select1" placeholder = "Consultation">
+                        <option value="general">Select Consultation</option>
+                        <option value="Video" id="video">Video Call</option>
+                        <option value="Offline" id="offline">Offline</option>
+                      </select>
+                </div>
+                <div class="input-box">
+                   <!-- <span class="details"></span>  -->
+                   <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
+                </div>
+            </div>
+            <div class="button">
+                <input type="Submit" (click)="onSavePost()" value="Register" id = "button">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
